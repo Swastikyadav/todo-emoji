@@ -46,7 +46,7 @@ input.addEventListener("keyup", function(event) {
     }
 });
 
-// WINKY
+// WINKY - Emoji
 
 winky.addEventListener("mouseover", function() {
     winkyMouth.style.borderRadius = "50%";
