@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.todo,
+.winky {
+    width: 50%;
+    height: 100vh;
+    float: left;
+}
+.todo {
+    background: rgba(0, 255, 255, 0.5);
+}
+.winky {
+    background: rgba(255, 105, 180, 0.5);
+}
+
+/* TODO */
+
+.todo input {
+    padding: 8px;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+.todo ul {
+    display: block;
+    margin-top: 5%;
+    text-align: center; 
+}
+.todo ul li {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: hotpink;
+}
+
+/* WINKY */
+
+.face {
+    width: 250px;
+    height: 250px;
+    background: rgb(253, 253, 170);
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 25%;
+    position: relative;
+}
+.eye1, .eye2 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 40px;
+}
+.eye2 {
+    left: 160px;
+}
+.mouth {
+    position: absolute;
+    width: 125px;
+    height: 30px;
+    background: #fff;
+    top: 60%;
+    left: 25%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
