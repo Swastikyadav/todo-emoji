@@ -5,23 +5,41 @@ var winkyMouth = document.querySelector(".mouth");
 
 var input = document.querySelector("input");
 var ul = document.querySelector("ul");
+
 input.addEventListener("keyup", function(event) {
     if (event.keyCode == 13) {
+        if (input.value !== "") {
+
         var li = document.createElement("li");
         var para = document.createElement("p");
 
         para.innerText = "X";
+        para.style.padding = "0 8px";
 
-        li.innerText = input.value;
+        li.innerHTML = `<span>${input.value}</span>`;
         li.appendChild(para);
-        li.setAttribute = ("hidden", "false");
-
-        ul.appendChild(li);
 
         // Delete TODO
         para.addEventListener("click", function() {
-            li.hidden = "true";
+            li.style.display = "none";
         });
+
+        li.addEventListener("dblclick", function() {
+            var liText = li.innerText;
+            li.innerHTML = `<input id='updateInput' type='text' value='${liText}'>`;
+            li.style.marginTop = "-140px";
+
+            var updateInput = document.getElementById("updateInput");
+            updateInput.addEventListener("keyup", function(e) {
+                if (e.keyCode == 13) {
+                    li.innerText = updateInput.value;
+                    li.style.marginTop = "";
+                    li.appendChild(para);
+                }
+            });
+        });
+
+        ul.appendChild(li);
 
         winkyEye.addEventListener("mouseover", function() {
             this.style.backgroundColor = "black";
@@ -43,20 +61,17 @@ input.addEventListener("keyup", function(event) {
         }, 200);
 
         input.value = "";
+        }
     }
 });
 
 // WINKY - Emoji
 
 winky.addEventListener("mouseover", function() {
-    winkyMouth.style.borderRadius = "50%";
-    winkyMouth.style.width = "30px";
-    winkyMouth.style.left = "120px";
+    winkyMouth.classList.add("winkyMouth");
 });
 winky.addEventListener("mouseout", function() {
-    winkyMouth.style.borderRadius = "";
-    winkyMouth.style.width = "";
-    winkyMouth.style.left = "";
+    winkyMouth.classList.remove("winkyMouth");
 });
 winky.addEventListener("mouseover", function() {
     winkyEye.style.backgroundColor = "black";
